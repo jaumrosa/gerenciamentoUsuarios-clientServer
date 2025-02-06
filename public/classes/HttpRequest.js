@@ -2,25 +2,25 @@ class HttpRequest{
 
     static get(url, params = {}) {
 
-       return HttpRequest.request('GET', url, params)
+       return HttpRequest.request('GET', url, params);
 
     }
 
     static delete(url, params = {}) {
 
-        return HttpRequest.request('DELETE', url, params)
+        return HttpRequest.request('DELETE', url, params);
  
     }
 
     static put(url, params = {}) {
 
-        return HttpRequest.request('PUT', url, params)
+        return HttpRequest.request('PUT', url, params);
  
     }
 
     static post(url, params = {}) {
 
-        return HttpRequest.request('POST', url, params)
+        return HttpRequest.request('POST', url, params);
  
      }
 
@@ -31,7 +31,7 @@ class HttpRequest{
 
             let ajax = new XMLHttpRequest();
 
-            ajax.open(method.toUpperCase(), '/users');
+            ajax.open(method.toUpperCase(), url);
 
             ajax.onerror = event => {
 
@@ -55,7 +55,9 @@ class HttpRequest{
         
         };
 
-        ajax.send();
+        ajax.setRequestHeader('Content-Type', 'application/json');
+
+        ajax.send(JSON.stringify(params));
 
     
         })
