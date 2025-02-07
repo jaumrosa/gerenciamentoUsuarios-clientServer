@@ -57,7 +57,9 @@ class UserController {
                 const user = new User();
 
                 user.loadFromJSON(result);
-
+                
+                console.log('4');
+                
                 user.save().then(user => {
 
                     this.getTr(user, tr);
@@ -101,6 +103,8 @@ class UserController {
                 (content)=>{
 
                     values.photo = content;
+
+                    console.log('2');
 
                     values.save().then(user => {
   
